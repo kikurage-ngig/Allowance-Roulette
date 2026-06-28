@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+  <title>おこづかいルーレット</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="app-shell" id="appShell">
+    <div class="sparkle-layer" id="sparkleLayer" aria-hidden="true"></div>
+    <div class="confetti-layer" id="confettiLayer" aria-hidden="true"></div>
+
+    <header class="hero">
+      <p class="eyebrow">PRINT CLEAR BONUS</p>
+      <h1>🎉 おこづかいルーレット</h1>
+    </header>
+
+    <main class="game-layout">
+      <section class="machine" aria-label="おこづかいルーレット">
+        <div class="marquee" aria-hidden="true">
+          <span></span><span></span><span></span><span></span><span></span>
+          <span></span><span></span><span></span><span></span><span></span>
+        </div>
+
+        <div class="wheel-stage">
+          <div class="pointer" aria-hidden="true"></div>
+          <canvas id="rouletteCanvas" width="760" height="760" aria-label="ルーレット"></canvas>
+          <div class="wheel-center" aria-hidden="true">
+            <span>GO!</span>
+          </div>
+        </div>
+
+        <div class="result-panel" id="resultPanel" aria-live="polite">
+          <span class="result-label">RESULT</span>
+          <strong id="resultText">ボタンを押してスタート！</strong>
+        </div>
+
+        <button class="spin-button" id="spinButton" type="button">
+          <span class="button-shine" aria-hidden="true"></span>
+          <span class="button-main">まわす！</span>
+        </button>
+      </section>
+
+      <section class="stats-panel" aria-label="統計">
+        <div class="stats-heading">
+          <span>STATS</span>
+          <h2>きろく</h2>
+        </div>
+
+        <div class="summary-grid">
+          <div class="summary-item">
+            <span>総回転数</span>
+            <strong id="totalSpins">0</strong>
+          </div>
+          <div class="summary-item">
+            <span>総獲得金額</span>
+            <strong id="totalAmount">0円</strong>
+          </div>
+        </div>
+
+        <div class="prize-list" id="prizeList"></div>
+      </section>
+    </main>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
