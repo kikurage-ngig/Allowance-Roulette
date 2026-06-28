@@ -237,7 +237,9 @@ function calculateTargetRotation(prize) {
   const currentNormalized = normalizeAngle(rotation);
   const targetNormalized = normalizeAngle(baseTarget);
   const forwardDelta = normalizeAngle(targetNormalized - currentNormalized);
-  const fullTurns = randomBetween(7.7, 9.2) * TWO_PI;
+  // 追加回転は必ず整数回転にする。
+  // 小数回転を足すと、抽選結果へ合わせた停止角度から最終位置がズレる。
+  const fullTurns = randomInteger(8, 10) * TWO_PI;
 
   return rotation + fullTurns + forwardDelta;
 }
@@ -457,6 +459,10 @@ function resetResultEffects() {
 
 function randomBetween(min, max) {
   return min + Math.random() * (max - min);
+}
+
+function randomInteger(min, max) {
+  return Math.floor(randomBetween(min, max + 1));
 }
 
 function normalizeAngle(angle) {
